@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://3d1dkaqawaec"]
+[gd_scene load_steps=16 format=3 uid="uid://3d1dkaqawaec"]
 
 [ext_resource type="PackedScene" uid="uid://cirew3pliylnt" path="res://scenes/player.tscn" id="1_k3k5q"]
+[ext_resource type="Script" path="res://scripts/game-manager.gd" id="1_uns2q"]
 [ext_resource type="Texture2D" uid="uid://em6juw4lp27w" path="res://assets/sprites/world_tileset.png" id="2_ghd6q"]
+[ext_resource type="FontFile" uid="uid://c3e3luw74gff7" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_h0w2k"]
 [ext_resource type="PackedScene" uid="uid://dwhkaap8goyvb" path="res://scenes/platform.tscn" id="3_wiweb"]
 [ext_resource type="PackedScene" uid="uid://de0e4rsgyofnk" path="res://scenes/coin.tscn" id="4_wthi6"]
 [ext_resource type="PackedScene" uid="uid://bbbebnwj5veaa" path="res://scenes/killzone.tscn" id="5_fcbi8"]
@@ -454,6 +456,23 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_uns2q")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = 264.0
+offset_top = -10.0
+offset_right = 364.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_h0w2k")
+theme_override_font_sizes/font_size = 8
+text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-9, 0)
 tile_set = SubResource("TileSet_m37rf")
@@ -551,6 +570,19 @@ theme_override_colors/font_color = Color(0.0784314, 0.596078, 0.862745, 1)
 theme_override_fonts/font = ExtResource("7_1whic")
 theme_override_font_sizes/font_size = 8
 text = "Careful"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Labels"]
+offset_left = 264.0
+offset_top = -25.0
+offset_right = 364.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_1whic")
+theme_override_font_sizes/font_size = 8
+text = "Current score:"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
