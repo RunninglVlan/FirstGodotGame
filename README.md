@@ -9,4 +9,5 @@ Followed [Brackeys' Godot Beginner Tutorial](https://www.youtube.com/watch?v=LOh
 File encoding is important: scenes need to use **UTF-8** without BOM, otherwise the engine might have trouble parsing them
 
 ## Useful resources
-- [Docs](https://docs.godotengine.org/en/stable/index.html)
+- [Godot Docs](https://docs.godotengine.org/en/stable/index.html)
+- [Godot Repo](https://github.com/godotengine/godot)
