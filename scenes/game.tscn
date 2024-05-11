@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://3d1dkaqawaec"]
+[gd_scene load_steps=14 format=3 uid="uid://3d1dkaqawaec"]
 
 [ext_resource type="PackedScene" uid="uid://cirew3pliylnt" path="res://scenes/player.tscn" id="1_k3k5q"]
 [ext_resource type="Texture2D" uid="uid://em6juw4lp27w" path="res://assets/sprites/world_tileset.png" id="2_ghd6q"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://de0e4rsgyofnk" path="res://scenes/coin.tscn" id="4_wthi6"]
 [ext_resource type="PackedScene" uid="uid://bbbebnwj5veaa" path="res://scenes/killzone.tscn" id="5_fcbi8"]
 [ext_resource type="PackedScene" uid="uid://c5dufuvsupeti" path="res://scenes/slime.tscn" id="6_hhgcw"]
+[ext_resource type="FontFile" uid="uid://b6lk7q7klq5rb" path="res://assets/fonts/PixelOperator8.ttf" id="7_1whic"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vlj4x"]
 texture = ExtResource("2_ghd6q")
@@ -525,3 +526,31 @@ position = Vector2(143, 32)
 
 [node name="Slime2" parent="." instance=ExtResource("6_hhgcw")]
 position = Vector2(191, 32)
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Labels"]
+offset_left = -114.0
+offset_top = -18.0
+offset_right = -14.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
+theme_override_fonts/font = ExtResource("7_1whic")
+theme_override_font_sizes/font_size = 8
+text = "Space to jump"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Labels"]
+offset_left = 251.0
+offset_top = -99.0
+offset_right = 351.0
+offset_bottom = -69.0
+theme_override_colors/font_color = Color(0.0784314, 0.596078, 0.862745, 1)
+theme_override_fonts/font = ExtResource("7_1whic")
+theme_override_font_sizes/font_size = 8
+text = "Careful"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
