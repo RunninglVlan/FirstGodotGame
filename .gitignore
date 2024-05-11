@@ -16,3 +16,6 @@ mono_crash.*.json
 
 # Rider
 /.idea
+
+# Mine
+/docs/*.import
