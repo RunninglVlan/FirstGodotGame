@@ -2,7 +2,7 @@
 Followed [Brackeys' Godot Beginner Tutorial](https://www.youtube.com/watch?v=LOhfqjmasi0)
 
 ## WebGL build
-<a href="https://runninglvlan.github.io/FirstGodotGame/"><img src="/thumbnail.png" /></a>
+<a href="https://runninglvlan.github.io/FirstGodotGame/"><img src="/docs/thumbnail.png" /></a>
 
 ## Important
 
