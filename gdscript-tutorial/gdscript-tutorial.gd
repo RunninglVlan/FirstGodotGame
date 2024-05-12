@@ -3,14 +3,16 @@ extends Node
 
 @onready var label = $Label
 
+var health = 100
+
 
 func _ready():
-	label.text = "Hello, World!"
-	label.modulate = Color.GREEN
+	label.text = str(health)
 
 
 func _input(event):
-	if !(event is InputEventKey and event.keycode == KEY_SPACE):
+	if !(event is InputEventKey and event.pressed and event.keycode == KEY_SPACE):
 		return
 
-	label.modulate = Color.RED if event.pressed else Color.GREEN
+	health -= 20
+	label.text = str(health)
