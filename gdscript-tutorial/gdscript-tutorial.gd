@@ -7,7 +7,10 @@ const HIT_MAX_Y_OFFSET = 75
 
 @onready var label = $Label
 
-var health := 100
+var health := 100:
+	set(value):
+		health = max(value, 0)
+
 var hit = load("res://gdscript-tutorial/hit.tscn")
 
 
@@ -24,7 +27,7 @@ func _input(event):
 
 	var hit_amount = randi_range(10, 20)
 	add_hit(hit_amount)
-	health = max(health - hit_amount, 0)
+	health -= hit_amount
 	update_label()
 	$HitSound.play()
 
