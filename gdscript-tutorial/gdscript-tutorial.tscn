@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://gnjv56ykh4ls"]
+[gd_scene load_steps=3 format=3 uid="uid://gnjv56ykh4ls"]
 
 [ext_resource type="Script" path="res://gdscript-tutorial/gdscript-tutorial.gd" id="1_bsevu"]
+[ext_resource type="AudioStream" uid="uid://dtbdh6wrokfmq" path="res://assets/sounds/hurt.wav" id="2_4n1qf"]
 
 [node name="GDScriptTutorial" type="Node"]
 script = ExtResource("1_bsevu")
@@ -12,3 +13,7 @@ theme_override_font_sizes/font_size = 80
 text = "Label"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_4n1qf")
