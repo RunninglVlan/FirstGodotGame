@@ -3,7 +3,7 @@ extends Node
 
 @onready var label = $Label
 
-var health = 100
+var health := 100
 
 
 func _ready():
