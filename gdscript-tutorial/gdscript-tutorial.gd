@@ -11,6 +11,10 @@ var health := 100:
 	set(value):
 		health = max(value, 0)
 
+var healthy := HealthState.new("Healthy", Color.GREEN)
+var injured := HealthState.new("Injured", Color.ORANGE)
+var died := HealthState.new("Died", Color.RED)
+
 var hit = load("res://gdscript-tutorial/hit.tscn")
 
 
@@ -34,14 +38,14 @@ func _input(event):
 
 func update_label():
 	if health > 50:
-		label.text = "Healthy"
-		label.modulate = Color.GREEN
+		label.text = healthy.text
+		label.modulate = healthy.color
 	elif health > 0:
-		label.text = "Injured"
-		label.modulate = Color.ORANGE
+		label.text = injured.text
+		label.modulate = injured.color
 	else:
-		label.text = "Died"
-		label.modulate = Color.RED
+		label.text = died.text
+		label.modulate = died.color
 
 
 func add_hit(amount):
@@ -52,3 +56,12 @@ func add_hit(amount):
 	position.y += randi_range(-HIT_MAX_Y_OFFSET, HIT_MAX_Y_OFFSET)
 	hit_instance.position = position
 	add_child(hit_instance)
+
+
+class HealthState:
+	var text: String
+	var color: Color
+
+	func _init(_text: String, _color: Color):
+		text = _text
+		color = _color
