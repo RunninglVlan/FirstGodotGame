@@ -588,6 +588,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="MultiplayerHUD" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 offset_left = -104.0
 offset_top = -69.0
 offset_right = -28.0
@@ -608,3 +609,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("7_1whic")
 theme_override_font_sizes/font_size = 8
 text = "Join Game"
+
+[connection signal="pressed" from="MultiplayerHUD/VBoxContainer/HostGame" to="GameManager" method="host_game"]
+[connection signal="pressed" from="MultiplayerHUD/VBoxContainer/JoinGame" to="GameManager" method="join_game"]
