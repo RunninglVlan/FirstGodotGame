@@ -586,3 +586,25 @@ text = "Current score:"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="MultiplayerHUD" type="PanelContainer" parent="."]
+offset_left = -104.0
+offset_top = -69.0
+offset_right = -28.0
+offset_bottom = -29.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MultiplayerHUD"]
+layout_mode = 2
+alignment = 1
+
+[node name="HostGame" type="Button" parent="MultiplayerHUD/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_h0w2k")
+theme_override_font_sizes/font_size = 8
+text = "Host Game"
+
+[node name="JoinGame" type="Button" parent="MultiplayerHUD/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_1whic")
+theme_override_font_sizes/font_size = 8
+text = "Join Game"
