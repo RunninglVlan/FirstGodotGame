@@ -8,6 +8,8 @@ Followed [Brackeys' Godot Beginner Tutorial](https://www.youtube.com/watch?v=LOh
 
 File encoding is important: scenes need to use **UTF-8** without BOM, otherwise the engine might have trouble parsing them
 
+Godot signals are similar to C# events, use `connect`/`disconnect` to subscribe/unsubscribe from them
+
 ## Useful resources
 - [Godot Docs](https://docs.godotengine.org/en/stable/index.html)
 - [Godot Repo](https://github.com/godotengine/godot)
