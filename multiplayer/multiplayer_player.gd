@@ -4,6 +4,10 @@ extends CharacterBody2D
 const SPEED = 130
 const JUMP_VELOCITY = -300
 
+@export var player_id := 1:
+	set(id):
+		player_id = id
+
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var jump_sound = $JumpSound
 

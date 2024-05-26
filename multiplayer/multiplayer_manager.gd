@@ -4,6 +4,8 @@ extends Node
 const SERVER_ADDRESS = "127.0.0.1"
 const SERVER_PORT = 8080
 
+var player_scene = load("res://multiplayer/multiplayer_player.tscn")
+
 
 func host_game():
 	var server_peer = ENetMultiplayerPeer.new()
@@ -16,6 +18,9 @@ func host_game():
 
 func add_player_to_game(id: int):
 	print("Player %s joined the game!" % id)
+	var player = player_scene.instantiate()
+	player.player_id = id
+	player.name = str(id)
 
 
 func remove_player_from_game(id: int):
