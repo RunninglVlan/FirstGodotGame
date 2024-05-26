@@ -15,7 +15,7 @@ var healthy := HealthState.new("Healthy", Color.GREEN)
 var injured := HealthState.new("Injured", Color.ORANGE)
 var died := HealthState.new("Died", Color.RED)
 
-var hit = load("res://gdscript-tutorial/hit.tscn")
+var hit = load("res://gdscript_tutorial/hit.tscn")
 
 
 func _ready():
