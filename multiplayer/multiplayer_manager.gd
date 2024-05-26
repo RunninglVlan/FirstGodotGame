@@ -32,6 +32,8 @@ func add_player_to_game(id: int):
 
 func remove_player_from_game(id: int):
 	print("Player %s left the game!" % id)
+	if (player_spawn_path.has_node(str(id))):
+		player_spawn_path.get_node(str(id)).queue_free()
 
 
 func join_game():
