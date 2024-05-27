@@ -9,11 +9,16 @@ const JUMP_VELOCITY = -300
 		player_id = id
 		$InputSynchronizer.set_multiplayer_authority(id)
 
+@onready var input_synchronizer = $InputSynchronizer
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var jump_sound = $JumpSound
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+
+func _ready():
+	input_synchronizer.jumped.connect(on_jumped)
 
 
 func _physics_process(delta):
@@ -23,11 +28,6 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		jump_sound.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -40,6 +40,12 @@ func _physics_process(delta):
 	handle_animation(direction)
 
 	move_and_slide()
+
+
+func on_jumped():
+	if is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		jump_sound.play()
 
 
 func handle_animation(direction):
