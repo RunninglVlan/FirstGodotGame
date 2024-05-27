@@ -16,6 +16,8 @@ const JUMP_VELOCITY = -300
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var direction = 0
+var on_floor = false
 
 
 func _ready():
@@ -27,9 +29,10 @@ func _ready():
 
 
 func _physics_process(delta):
-	if not multiplayer.is_server():
-		return
-	handle_movement(delta)
+	if multiplayer.is_server():
+		handle_movement(delta)
+		on_floor = is_on_floor()
+
 	handle_animation()
 
 
@@ -46,7 +49,7 @@ func handle_movement(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = $InputSynchronizer.direction
+	direction = $InputSynchronizer.direction
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -56,10 +59,9 @@ func handle_movement(delta):
 
 
 func handle_animation():
-	var direction = $InputSynchronizer.direction
 	if (direction != 0):
 		animated_sprite.flip_h = false if direction > 0 else true
-	if is_on_floor():
+	if on_floor:
 		animated_sprite.play("idle" if direction == 0 else "run")
 	else:
 		animated_sprite.play("jump")
