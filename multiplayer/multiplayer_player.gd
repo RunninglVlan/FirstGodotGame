@@ -29,7 +29,17 @@ func _ready():
 func _physics_process(delta):
 	if not multiplayer.is_server():
 		return
+	handle_movement(delta)
+	handle_animation()
 
+
+func on_jumped():
+	if is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		jump_sound.play()
+
+
+func handle_movement(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -42,18 +52,11 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	handle_animation(direction)
-
 	move_and_slide()
 
 
-func on_jumped():
-	if is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		jump_sound.play()
-
-
-func handle_animation(direction):
+func handle_animation():
+	var direction = $InputSynchronizer.direction
 	if (direction != 0):
 		animated_sprite.flip_h = false if direction > 0 else true
 	if is_on_floor():
