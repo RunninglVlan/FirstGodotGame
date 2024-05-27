@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -300
 @export var player_id := 1:
 	set(id):
 		player_id = id
+		$InputSynchronizer.set_multiplayer_authority(id)
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var jump_sound = $JumpSound
@@ -16,6 +17,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
+	if not multiplayer.is_server():
+		return
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -27,7 +31,7 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("move_left", "move_right")
+	var direction = $InputSynchronizer.direction
 	if direction:
 		velocity.x = direction * SPEED
 	else:
