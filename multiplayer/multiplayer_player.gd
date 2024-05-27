@@ -39,7 +39,7 @@ func _physics_process(delta):
 func on_jumped():
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		jump_sound.play()
+		play_jump_sound.rpc()
 
 
 func handle_movement(delta):
@@ -65,3 +65,8 @@ func handle_animation():
 		animated_sprite.play("idle" if direction == 0 else "run")
 	else:
 		animated_sprite.play("jump")
+
+
+@rpc("call_local")
+func play_jump_sound():
+	jump_sound.play()
