@@ -531,8 +531,9 @@ position = Vector2(100, -50)
 [node name="Platform4" parent="Platforms" instance=ExtResource("3_wiweb")]
 position = Vector2(430, 12)
 
-[node name="Platform3" parent="Platforms" instance=ExtResource("3_wiweb")]
+[node name="Platform3" parent="Platforms" node_paths=PackedStringArray("animation_player") instance=ExtResource("3_wiweb")]
 position = Vector2(263, -60)
+animation_player = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform3"]
 libraries = {
