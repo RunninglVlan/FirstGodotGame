@@ -12,6 +12,7 @@ const JUMP_VELOCITY = -300
 @onready var input_synchronizer = $InputSynchronizer
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var jump_sound = $JumpSound
+@onready var camera = $Camera2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -19,6 +20,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	input_synchronizer.jumped.connect(on_jumped)
+	if multiplayer.get_unique_id() == player_id:
+		camera.make_current()
+	else:
+		camera.enabled = false
 
 
 func _physics_process(delta):
