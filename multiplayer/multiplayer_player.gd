@@ -84,4 +84,9 @@ func _on_respawn_timer_timeout():
 	Engine.time_scale = 1
 	position = Vector2(0, 0)
 	velocity = Vector2.ZERO
+
+	# Workaround for https://github.com/godotengine/godot/issues/45131
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+
 	collision_shape.set_deferred("disabled", false)
