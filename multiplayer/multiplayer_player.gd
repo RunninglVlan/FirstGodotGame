@@ -49,7 +49,7 @@ func handle_movement(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	direction = $InputSynchronizer.direction
+	direction = input_synchronizer.direction
 	if direction:
 		velocity.x = direction * SPEED
 	else:
