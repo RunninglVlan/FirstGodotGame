@@ -6,6 +6,7 @@ const SERVER_PORT = 8080
 
 var player_spawn_path: Node
 var player_scene = load("res://multiplayer/multiplayer_player.tscn")
+var multiplayer_enabled = false
 
 
 func host_game():
@@ -20,6 +21,7 @@ func host_game():
 
 	add_player_to_game(1)
 	remove_singleplayer()
+	multiplayer_enabled = true
 
 
 func add_player_to_game(id: int):
@@ -42,6 +44,7 @@ func join_game():
 	multiplayer.multiplayer_peer = client_peer
 
 	remove_singleplayer()
+	multiplayer_enabled = true
 
 
 func remove_singleplayer():

@@ -13,6 +13,8 @@ const JUMP_VELOCITY = -300
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var jump_sound = $JumpSound
 @onready var camera = $Camera2D
+@onready var collision_shape = $CollisionShape2D
+@onready var respawn_timer = $RespawnTimer
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -70,3 +72,16 @@ func handle_animation():
 @rpc("call_local")
 func play_jump_sound():
 	jump_sound.play()
+
+
+func mark_dead():
+	Engine.time_scale = 0.5
+	collision_shape.set_deferred("disabled", true)
+	respawn_timer.start()
+
+
+func _on_respawn_timer_timeout():
+	Engine.time_scale = 1
+	position = Vector2(0, 0)
+	velocity = Vector2.ZERO
+	collision_shape.set_deferred("disabled", false)
