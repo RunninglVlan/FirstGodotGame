@@ -1,5 +1,5 @@
 ﻿# FirstGodotGame
-Followed [Brackeys' Godot Beginner Tutorial](https://www.youtube.com/watch?v=LOhfqjmasi0)
+Followed [Brackeys' Godot Beginner Tutorial](https://www.youtube.com/watch?v=LOhfqjmasi0) and [Battery Acid Dev's Add Multiplayer to your Godot Game!](https://www.youtube.com/watch?v=V4a_J38XdHk)
 
 ## WebGL build
 <a href="https://runninglvlan.github.io/FirstGodotGame/"><img src="/docs/thumbnail.png" /></a>
@@ -14,6 +14,10 @@ It's possible to run multiple instances right away in _Debug > Run Multiple Inst
 
 After running the game, _Remote_ button appears so that live game scene could be observed
 - If multiple instances are run, in the _Debugger_ panel there are _Sessions_ tabs to switch between Remote scenes
+
+## Multiplayer
+
+There's no client side prediction and transform updates are server-side so client movement is jittery.
 
 ## Useful resources
 - [Godot Docs](https://docs.godotengine.org/en/stable/index.html)
